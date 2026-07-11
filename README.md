@@ -10,6 +10,8 @@
 
 A fine-tuned transformer model that classifies e-commerce product reviews as **Positive** or **Negative**, served through a Streamlit UI. Built with a modular, testable, production-style structure: config-driven training, a reusable inference layer, unit tests, CI, and Docker packaging.
 
+> **Note:** the CI badge above assumes this repo is pushed to `Gayathri-Reddy874/ecommerce-sentiment-analysis` on GitHub. Update the badge URL and the clone URL below if you use a different repo name.
+
 ## Features
 
 - **Transformer-based classifier** — fine-tunes a Hugging Face model (`distilbert-base-uncased` by default) on labeled review text using the `Trainer` API.
@@ -109,13 +111,13 @@ Reviews don't come with a sentiment label directly, so one is derived from the s
 | 1–2    | Negative (0) |
 | 3      | Dropped (ambiguous/neutral) |
 
-## Dataset Notes (Known Limitation)
+## Dataset Notes
 
-The bundled `data/raw/ecommerce_reviews.csv` (1,000 rows) is a synthetic dataset: on inspection it contains only **10 unique review phrases**, each repeated ~75–115 times with inconsistent star ratings (e.g. "Exceeded my expectations!" appears against ratings from 1 to 5). This means:
+`data/raw/ecommerce_reviews.csv` (997 rows) is real Amazon product review data (product ID, star rating, free-text review), not the earlier synthetic/templated sample. After cleaning, 903 rows remain across 4 unique products worth of review text with genuine variety.
 
-- The pipeline correctly reports this via a logged warning when the number of unique review texts is low.
-- A model trained on this data will only ever have seen 10 distinct sentences, so it will **not generalize** to real-world review text — it's useful for validating that the training/inference pipeline works end-to-end, not for production-quality sentiment classification.
-- To get a genuinely useful model, replace `data/raw/ecommerce_reviews.csv` with a larger, more diverse review dataset (e.g. Amazon or Yelp review data) that keeps the same `review_text` and `rating` columns — no other code changes are required.
+One real-world characteristic worth knowing about: ratings skew positive (about 85% of the cleaned rows are 4–5 stars), which is typical of organic review data. To stop the model from just learning to always predict "positive," `src/train.py` computes class weights from the training split and applies them via a weighted cross-entropy loss (`WeightedTrainer` in `train.py`), so the minority (negative) class isn't drowned out during training.
+
+If you swap in your own dataset, keep the same `review_id`, `product`, `rating`, `review_text` columns — no other code changes are required. If the dataset you use is still overwhelmingly one class even after weighting, consider also collecting more negative examples rather than relying on weighting alone.
 
 ## Design Decisions
 
@@ -131,7 +133,6 @@ Python · PyTorch · Hugging Face Transformers · scikit-learn · Streamlit · p
 ## Author
 
 **Mallareddygari Gayathri**
-
 GitHub: [@Gayathri-Reddy874](https://github.com/Gayathri-Reddy874)
 
 ## License
