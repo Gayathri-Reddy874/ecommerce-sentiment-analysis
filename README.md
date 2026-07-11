@@ -39,6 +39,7 @@ ecommerce-sentiment-analysis/
 ├── data/raw/                # Raw dataset (CSV)
 ├── models/                  # Trained model artifacts (git-ignored)
 ├── .github/workflows/ci.yml # Lint + test pipeline
+├── screenshots/  
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
