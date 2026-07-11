@@ -10,6 +10,8 @@
 
 A fine-tuned transformer model that classifies e-commerce product reviews as **Positive** or **Negative**, served through a Streamlit UI. Built with a modular, testable, production-style structure: config-driven training, a reusable inference layer, unit tests, CI, and Docker packaging.
 
+> **Note:** the CI badge above assumes this repo is pushed to `Gayathri-Reddy874/ecommerce-sentiment-analysis` on GitHub. Update the badge URL and the clone URL below if you use a different repo name.
+
 ## Features
 
 - **Transformer-based classifier** — fine-tunes a Hugging Face model (`distilbert-base-uncased` by default) on labeled review text using the `Trainer` API.
@@ -127,3 +129,12 @@ The bundled `data/raw/ecommerce_reviews.csv` (1,000 rows) is a synthetic dataset
 ## Tech Stack
 
 Python · PyTorch · Hugging Face Transformers · scikit-learn · Streamlit · pytest · Docker · GitHub Actions
+
+## Author
+
+**Mallareddygari Gayathri**
+GitHub: [@Gayathri-Reddy874](https://github.com/Gayathri-Reddy874)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
