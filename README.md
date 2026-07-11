@@ -131,6 +131,7 @@ Python · PyTorch · Hugging Face Transformers · scikit-learn · Streamlit · p
 ## Author
 
 **Mallareddygari Gayathri**
+
 GitHub: [@Gayathri-Reddy874](https://github.com/Gayathri-Reddy874)
 
 ## License
