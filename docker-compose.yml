@@ -1,0 +1,9 @@
+services:
+  sentiment-app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models
+    environment:
+      - MODEL_DIR=/app/models/sentiment_model
