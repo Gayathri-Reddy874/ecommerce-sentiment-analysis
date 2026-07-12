@@ -20,6 +20,14 @@ A fine-tuned transformer model that classifies e-commerce product reviews as **P
 - **Unit tests + CI** — data cleaning and inference logic are covered by `pytest`, run automatically on every push via GitHub Actions.
 - **Dockerized** — one command to build and run the app in a container.
 
+## Screenshots
+
+**App overview**
+![App preview](screenshots/Preview.png)
+
+**Sentiment prediction with confidence score**
+![Sentiment analysis result](screenshots/Sentiment-Analysis.png)
+
 ## Project Structure
 
 ```
