@@ -13,7 +13,7 @@ A fine-tuned transformer model that classifies e-commerce product reviews as **P
 
 ## Features
 
-- **Transformer-based classifier** — fine-tunes a Hugging Face model (`distilbert-base-uncased` by default) on labeled review text using the `Trainer` API.
+- **Transformer-based classifier** - fine-tunes a Hugging Face model (`distilbert-base-uncased` by default) on labeled review text using the `Trainer` API.
 - **Config via environment variables** — swap the base model, hyperparameters, or model path without touching code (`.env.example` provided).
 - **Shared inference layer** — a single `SentimentPredictor` class is used by the Streamlit app, the CLI, and the tests, so prediction logic lives in exactly one place.
 - **Honest confidence reporting** — low-confidence predictions are flagged as uncertain rather than silently overridden by hand-written rules.
