@@ -18,7 +18,7 @@ A fine-tuned transformer model that classifies e-commerce product reviews as **P
 - **Shared inference layer** - a single `SentimentPredictor` class is used by the Streamlit app, the CLI, and the tests, so prediction logic lives in exactly one place.
 - **Honest confidence reporting** - low-confidence predictions are flagged as uncertain rather than silently overridden by hand-written rules.
 - **Unit tests + CI** - data cleaning and inference logic are covered by `pytest`, run automatically on every push via GitHub Actions.
-- **Dockerized** — one command to build and run the app in a container.
+- **Dockerized** - one command to build and run the app in a container.
 
 ## Screenshots
 
