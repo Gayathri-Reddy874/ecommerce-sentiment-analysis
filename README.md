@@ -125,7 +125,7 @@ Reviews don't come with a sentiment label directly, so one is derived from the s
 
 One real-world characteristic worth knowing about: ratings skew positive (about 85% of the cleaned rows are 4–5 stars), which is typical of organic review data. To stop the model from just learning to always predict "positive," `src/train.py` computes class weights from the training split and applies them via a weighted cross-entropy loss (`WeightedTrainer` in `train.py`), so the minority (negative) class isn't drowned out during training.
 
-If you swap in your own dataset, keep the same `review_id`, `product`, `rating`, `review_text` columns — no other code changes are required. If the dataset you use is still overwhelmingly one class even after weighting, consider also collecting more negative examples rather than relying on weighting alone.
+If you swap in your own dataset, keep the same `review_id`, `product`, `rating`, `review_text` columns - no other code changes are required. If the dataset you use is still overwhelmingly one class even after weighting, consider also collecting more negative examples rather than relying on weighting alone.
 
 ## Design Decisions
 
