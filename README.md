@@ -107,7 +107,7 @@ pytest tests/ -v --cov=src
 docker compose up --build
 ```
 
-The app will be available at `http://localhost:8501`. The `models/` directory is mounted as a volume, so train locally first (or mount a pre-trained model) — the container itself doesn't bundle model weights.
+The app will be available at `http://localhost:8501`. The `models/` directory is mounted as a volume, so train locally first (or mount a pre-trained model) - the container itself doesn't bundle model weights.
 
 ## How Labels Are Derived
 
